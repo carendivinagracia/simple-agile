@@ -18,14 +18,14 @@ const resolver = {
     }
   },
   Task: {
-    status: (parent, args, context) => {
-      return knex('task_status').where('id', parent.task_status_id).first();
+    status: ({ task_status_id }) => {
+      return knex('task_status').where('id', task_status_id).first();
     },
-    assignee: (parent, args, context) => {
+    assignee: ({ id }) => {
       return knex.select('assignee.*').from('assignee')
         .leftJoin('task_assignee', 'assignee.id', 'task_assignee.assignee_id')
         .leftJoin('task', 'task_assignee.task_id', 'task_id')
-        .where('task_assignee.task_id', parent.id);
+        .where('task_assignee.task_id', id);
     }
   },
   Mutation: {

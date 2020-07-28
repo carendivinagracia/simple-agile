@@ -12,8 +12,8 @@ const resolver = {
     }
   },
   Board: {
-    tasks: (parent, args, context) => {
-      return knex('task').where('board_id', parent.id);
+    tasks: ({ id }) => {
+      return knex('task').where('board_id', id);
     }
   },
   Mutation: {
