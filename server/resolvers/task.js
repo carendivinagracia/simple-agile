@@ -17,6 +17,17 @@ const resolver = {
       return knex('task_status').where('id', id).first();
     }
   },
+  Task: {
+    status: (parent, args, context) => {
+      return knex('task_status').where('id', parent.task_status_id).first();
+    },
+    assignee: (parent, args, context) => {
+      return knex.select('assignee.*').from('assignee')
+        .leftJoin('task_assignee', 'assignee.id', 'task_assignee.assignee_id')
+        .leftJoin('task', 'task_assignee.task_id', 'task_id')
+        .where('task_assignee.task_id', parent.id);
+    }
+  },
   Mutation: {
     addTask: async (parent, args, context) => {
       const { name, description, boardId, assigneeIds } = args.input;

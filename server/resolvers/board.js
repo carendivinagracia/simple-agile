@@ -11,6 +11,11 @@ const resolver = {
       return knex('board').where('id', id).first();
     }
   },
+  Board: {
+    tasks: (parent, args, context) => {
+      return knex('task').where('board_id', parent.id);
+    }
+  },
   Mutation: {
     addBoard: async (parent, args, context) => {
       const { name, startDate, endDate } = args.input;
