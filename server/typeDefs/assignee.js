@@ -5,6 +5,7 @@ const assignee = gql`
         id: ID!
         name: String!
         email: String!
+        add_date: DateTime!
     }
 
     input AddAssigneeInput {

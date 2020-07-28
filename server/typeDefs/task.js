@@ -4,10 +4,12 @@ const task = gql`
     type Task {
         id: ID!
         name: String!
-        description: String!
+        description: String
         status: TaskStatus!
         assignee: [Assignee!]
         board: Board!
+        add_date: DateTime!
+        update_date: DateTime!
     }
 
     input AddTaskInput {

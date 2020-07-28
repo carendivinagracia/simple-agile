@@ -7,8 +7,8 @@ const board = gql`
         id: ID!
         name: String!
         completed: Boolean!
-        startDate: DateTime!
-        endDate: DateTime!
+        start_date: DateTime!
+        end_date: DateTime!
         tasks: [Task!]
     }
 

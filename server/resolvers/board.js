@@ -1,10 +1,10 @@
 const resolver = {
     Query: {
         boards: () => {
-
+            return knex('board').select();
         },
         board: (parent, { id }, context, info) => {
-            
+            return knex('board').where('id', id).first();
         }
     },
     Mutation: {
