@@ -1,4 +1,4 @@
-#Simple Agile
+## Simple Agile
 An app for simple agile management. This uses reactJS, graphql, and knexJS.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
