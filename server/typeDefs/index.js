@@ -5,11 +5,11 @@ const task = require('./task');
 const taskStatus = require('./taskStatus');
 
 const typeDefs = [
-    root,
-    assignee,
-    board,
-    task,
-    taskStatus
+  root,
+  assignee,
+  board,
+  task,
+  taskStatus
 ];
 
 module.exports = typeDefs;
