@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Card } from 'antd';
+import { Card, Button } from 'antd';
 import { EyeOutlined } from '@ant-design/icons';
 import moment from 'moment';
 import TaskDetails from './TaskDetails';
@@ -15,11 +15,7 @@ function TaskCard({ task }) {
     showTaskDetails(false);
   };
 
-  const {
-    name,
-    description,
-    add_date,
-  } = task;
+  const { name, description, add_date } = task;
   const formatAddDate = moment(add_date).format('LLL');
 
   return (
@@ -27,9 +23,13 @@ function TaskCard({ task }) {
       <Card
         title={name}
         extra={
-          <button onClick={showTaskDetailsDrawer}>
-            <EyeOutlined className='view-board-icon' /> Details
-          </button>
+          <Button
+            type='link'
+            icon={<EyeOutlined className='view-board-icon' />}
+            onClick={showTaskDetailsDrawer}
+          >
+            Details
+          </Button>
         }
       >
         <p>{description}</p>
